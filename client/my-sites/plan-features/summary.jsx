@@ -78,7 +78,7 @@ class PlanFeaturesSummary extends Component {
 				{ !! discountYearlyPrice && (
 					<div className="plan-features__summary-price-row plan-features__summary-discount">
 						<span className="plan-features__summary-item">
-							{ isJetpackSite ? 'Jetpack credits' : `${ currentPlanTitle } Plan credits` }
+							{ isJetpackSite ? 'Jetpack credits' : `${ currentPlanTitle } plan credits` }
 						</span>
 						<span className="plan-features__summary-price">
 							{ formatCurrency( discountYearlyPrice - yearlyPrice, currencyCode ) }

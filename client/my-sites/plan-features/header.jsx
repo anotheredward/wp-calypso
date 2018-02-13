@@ -109,13 +109,17 @@ class PlanFeaturesHeader extends Component {
 	}
 
 	getCreditLabel() {
-		const { showModifiedPricingDisplay, discountPrice, relatedMonthlyPlan } = this.props;
+		const { showModifiedPricingDisplay, discountPrice, rawPrice, relatedMonthlyPlan } = this.props;
 
 		if ( ! showModifiedPricingDisplay ) {
 			return null;
 		}
 
 		if ( ! discountPrice && ! relatedMonthlyPlan ) {
+			return null;
+		}
+
+		if ( relatedMonthlyPlan && relatedMonthlyPlan.raw_price * 12 === rawPrice ) {
 			return null;
 		}
 
