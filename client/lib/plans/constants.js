@@ -231,6 +231,7 @@ export const PLANS_LIST = {
 		],
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );
@@ -300,6 +301,7 @@ export const PLANS_LIST = {
 		],
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );
@@ -398,6 +400,7 @@ export const PLANS_LIST = {
 		],
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );
@@ -541,6 +544,7 @@ export const PLANS_LIST = {
 			] ),
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );
@@ -620,6 +624,7 @@ export const PLANS_LIST = {
 		],
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );
@@ -740,6 +745,7 @@ export const PLANS_LIST = {
 			] ),
 		getBillingTimeFrame: abtest => {
 			if ( abtest && abtest( 'upgradePricingDisplay' ) === 'modified' ) {
+				// Note: Don't make this translatable because it's only visible to English-language users
 				return '/month, billed annually';
 			}
 			return i18n.translate( 'per month, billed yearly' );

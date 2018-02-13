@@ -16,7 +16,13 @@ import formatCurrency from 'lib/format-currency';
 class PlanFeaturesSummary extends Component {
 	static propTypes = {
 		available: PropTypes.bool.isRequired,
+		currencyCode: PropTypes.string,
+		current: PropTypes.bool,
+		currentPlanTitle: PropTypes.string,
 		planTitle: PropTypes.string.isRequired,
+		rawPrice: PropTypes.number,
+		relatedMonthlyPlan: PropTypes.object,
+		site: PropTypes.object.isRequired,
 	};
 
 	render() {

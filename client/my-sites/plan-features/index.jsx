@@ -50,7 +50,7 @@ import FoldableCard from 'components/foldable-card';
 import { recordTracksEvent } from 'state/analytics/actions';
 import formatCurrency from 'lib/format-currency';
 import { retargetViewPlans } from 'lib/analytics/ad-tracking';
-import { abtest } from 'lib/abtest';
+import { abtest, getABTestVariation } from 'lib/abtest';
 
 class PlanFeatures extends Component {
 	render() {
@@ -166,6 +166,7 @@ class PlanFeatures extends Component {
 						currentPlanTitle={ sitePlan.product_name_short }
 						discountPrice={ discountPrice }
 						planTitle={ planConstantObj.getTitle() }
+						planType={ planName }
 						rawPrice={ rawPrice }
 						relatedMonthlyPlan={ relatedMonthlyPlan }
 						site={ site }
@@ -231,6 +232,7 @@ class PlanFeatures extends Component {
 				primaryUpgrade,
 				isPlaceholder,
 				hideMonthly,
+				showModifiedPricingDisplay,
 			} = properties;
 			const { rawPrice, discountPrice } = properties;
 			return (
@@ -245,7 +247,7 @@ class PlanFeatures extends Component {
 						planType={ planName }
 						rawPrice={ rawPrice }
 						discountPrice={ discountPrice }
-						billingTimeFrame={ planConstantObj.getBillingTimeFrame( abtest ) }
+						billingTimeFrame={ planConstantObj.getBillingTimeFrame( getABTestVariation ) }
 						hideMonthly={ hideMonthly }
 						isPlaceholder={ isPlaceholder }
 						site={ site }
@@ -253,6 +255,7 @@ class PlanFeatures extends Component {
 						relatedMonthlyPlan={ relatedMonthlyPlan }
 						isInSignup={ isInSignup }
 						selectedPlan={ selectedPlan }
+						showModifiedPricingDisplay={ showModifiedPricingDisplay }
 					/>
 					<p className="plan-features__description">{ planConstantObj.getDescription( abtest ) }</p>
 					<PlanFeaturesActions
@@ -294,6 +297,7 @@ class PlanFeatures extends Component {
 			selectedPlan,
 			site,
 			siteType,
+			showModifiedPricingDisplay,
 		} = this.props;
 
 		return map( planProperties, properties => {
@@ -355,6 +359,7 @@ class PlanFeatures extends Component {
 						site={ site }
 						selectedPlan={ selectedPlan }
 						title={ planConstantObj.getTitle() }
+						showModifiedPricingDisplay={ showModifiedPricingDisplay }
 					/>
 				</td>
 			);

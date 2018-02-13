@@ -566,6 +566,9 @@ $plan-features-sidebar-width: 272px;
 	.plan-price.is-discounted {
 		display: none;
 	}
+	.plan-price.is-original:before {
+		display: none;
+	}
 }
 
 .plan-features__notice-credits {
@@ -604,5 +607,27 @@ $plan-features-sidebar-width: 272px;
 	&-policy {
 		font-size: 12px;
 		color: $gray;
+	}
+}
+
+.plan-features__header-credit-label {
+	position: absolute;
+	font-size: 11px;
+	line-height: 20px;
+	height: 20px;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: normal;
+	vertical-align: middle;
+	padding: 0 8px;
+	margin-left: 8px;
+	margin-top: -2px;
+
+	.is-business-plan & {
+		background: darken( #c879cc, 20% );
+	}
+
+	.is-premium-plan & {
+		background: darken( #44d0a3, 20% );
 	}
 }
