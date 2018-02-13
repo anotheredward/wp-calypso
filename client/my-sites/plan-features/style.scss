@@ -623,6 +623,10 @@ $plan-features-sidebar-width: 272px;
 	margin-left: 8px;
 	margin-top: -2px;
 
+	.is-personal-plan & {
+		background: darken( #fcd56e, 20% );
+	}
+
 	.is-business-plan & {
 		background: darken( #c879cc, 20% );
 	}
