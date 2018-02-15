@@ -116,11 +116,6 @@
 		}
 	}
 
-	.dashboard__setup-task-status:not(.dashboard__setup-task-status .gridicon){
-		background-color: black;
-		color: black;
-	}
-
 	.dashboard__setup-task-status:empty {
 		background:  $gray-lighten-30;
 		border: 4px solid $white;
