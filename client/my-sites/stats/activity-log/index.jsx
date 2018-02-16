@@ -468,7 +468,6 @@ class ActivityLog extends Component {
 				{ this.renderMonthNavigation() }
 				{ ( currentRewind.status === 'queued' || currentRewind.status === 'running' ) && (
 					<RewindProgressBanner
-						key="current-running-rewind"
 						applySiteOffset={ this.applySiteOffset }
 						restoreId={ currentRewind.rewindId }
 						siteId={ siteId }
@@ -481,7 +480,7 @@ class ActivityLog extends Component {
 						requestedRestoreId={ currentRewind.rewindId }
 						failureReason={ currentRewind.reason }
 						rewindRestore={ this.props.rewindRestore }
-						closeDialog={ this.dismissRewind }
+						closeDialog={ currentRewind.dismiss }
 						siteId={ siteId }
 						siteTitle={ siteTitle }
 						timestamp={ currentRewind.startedAt.toISOString() }
