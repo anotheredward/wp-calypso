@@ -125,7 +125,7 @@ export const announceSaveFailure = ( { dispatch }, { siteId } ) => {
 	);
 };
 
-export const retryOrAnnounceFailure = ( { dispatch }, action ) => {
+export const retryOrAnnounceSaveFailure = ( { dispatch }, action ) => {
 	const MAX_WOOCOMMERCE_INSTALL_RETRIES = 3;
 	const { settings, siteId, type, meta: { dataLayer } } = action;
 	const { error, retryCount = 0 } = dataLayer;
@@ -164,6 +164,6 @@ export default {
 		} ),
 	],
 	[ JETPACK_ONBOARDING_SETTINGS_SAVE ]: [
-		dispatchRequest( saveJetpackOnboardingSettings, handleSaveSuccess, retryOrAnnounceFailure ),
+		dispatchRequest( saveJetpackOnboardingSettings, handleSaveSuccess, retryOrAnnounceSaveFailure ),
 	],
 };
