@@ -138,8 +138,9 @@ export const announceSaveFailure = ( { dispatch }, action ) => {
 	}
 
 	// We cannot use `extendAction( action, ... )` here, since `meta.datayLayer` now includes error information,
-	// which we would propagate.
-	const updatedAction = {
+	// which we would propagate, causing the data layer to think there's been an error on the subsequent attempt.
+	// Instead, we have to re-assemble our action.
+	dispatch( {
 		settings,
 		siteId,
 		type,
@@ -149,11 +150,7 @@ export const announceSaveFailure = ( { dispatch }, action ) => {
 				trackRequest: true,
 			},
 		},
-	};
-
-	console.log( 'updatedAction', updatedAction );
-
-	dispatch( updatedAction );
+	} );
 };
 
 export default {
