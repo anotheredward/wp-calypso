@@ -225,12 +225,15 @@ class ShippingLabels extends Component {
 				{ this.renderPaymentPermissionNotice() }
 				<p className="label-settings__credit-card-description">{ description }</p>
 
-				{ ! isReloading ? null : (
+				{ isReloading ? (
 					<div className="label-settings__placeholder">
 						<PaymentMethod selected={ false } isLoading={ true } />
+						<PaymentMethod selected={ false } isLoading={ true } />
 					</div>
+				) : (
+					paymentMethods.map( renderPaymentMethod )
 				) }
-				{ paymentMethods.map( renderPaymentMethod ) }
+
 				<Button onClick={ onAddCardExternal } compact>
 					{ buttonLabel }
 				</Button>
