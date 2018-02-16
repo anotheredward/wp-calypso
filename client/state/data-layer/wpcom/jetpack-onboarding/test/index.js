@@ -268,7 +268,7 @@ describe( 'retryOrAnnounceSaveFailure()', () => {
 				...action.meta,
 				dataLayer: {
 					...action.meta.dataLayer,
-					retryCount: 4,
+					retryCount: 3,
 				},
 			},
 		};
