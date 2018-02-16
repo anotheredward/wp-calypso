@@ -21,7 +21,7 @@ import { requestSiteRename } from 'state/site-rename/actions';
 import { isRequestingSiteRename } from 'state/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 
-const SUBDOMAIN_LENGTH_MINIMUM = 2;
+const SUBDOMAIN_LENGTH_MINIMUM = 4;
 const SUBDOMAIN_LENGTH_MAXIMUM = 50;
 
 export class SimpleSiteRenameForm extends Component {
@@ -47,17 +47,20 @@ export class SimpleSiteRenameForm extends Component {
 	getDomainValidationMessage( domain ) {
 		const { translate } = this.props;
 
-		if ( ! domain.match( /^[a-z0-9]+$/i ) ) {
-			return translate( 'Domain can only contain letters and numbers' );
+		if ( domain.match( /[^a-z0-9]/i ) ) {
+			return translate( 'Domain can only contain lowercase letters (a-z) and numbers.' );
 		}
 
 		if ( ! inRange( domain.length, SUBDOMAIN_LENGTH_MINIMUM, SUBDOMAIN_LENGTH_MAXIMUM ) ) {
-			return translate( 'Domain length should be between %(minimumLength)s and %(maximumLength)s', {
-				args: {
-					minimumLength: SUBDOMAIN_LENGTH_MINIMUM,
-					maximumLength: SUBDOMAIN_LENGTH_MAXIMUM,
-				},
-			} );
+			return translate(
+				'Domain length should be between %(minimumLength)s and %(maximumLength)s characters.',
+				{
+					args: {
+						minimumLength: SUBDOMAIN_LENGTH_MINIMUM,
+						maximumLength: SUBDOMAIN_LENGTH_MAXIMUM,
+					},
+				}
+			);
 		}
 
 		return '';
