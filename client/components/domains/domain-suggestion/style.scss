@@ -110,6 +110,12 @@
 	text-align: center;
 	color: $blue-medium;
 
+	.is-kracken-ui & {
+		color: $white;
+		padding-left: 3em;
+		padding-right: 3em;
+	}
+
 	.is-placeholder & {
 		animation: loading-fade 1.6s ease-in-out infinite;
 		background-color: $gray-lighten-30;
